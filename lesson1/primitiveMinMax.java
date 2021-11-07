@@ -13,7 +13,5 @@ public class PrimitiveMinMax {
 		System.out.println("Максимальное значение числа типа float: " + Float.MAX_VALUE);
 		System.out.println("Минимальное значение числа типа double: " + Double.MIN_VALUE);
 		System.out.println("Максимальное значение числа типа double: " + Double.MAX_VALUE);
-
 	}
-
 }
