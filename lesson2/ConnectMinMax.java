@@ -3,7 +3,7 @@ public class ConnectMinMax {
 		byte byteMax = Byte.MAX_VALUE;
 		byte byteMin = Byte.MIN_VALUE;
 		short shortMin = Short.MIN_VALUE;
-		short shortMax = Short.MAX_VALUE);
+		short shortMax = Short.MAX_VALUE;
 		int intMin = Integer.MIN_VALUE;
 		int intMax = Integer.MAX_VALUE;
 		long longMin = Long.MIN_VALUE;
@@ -14,19 +14,19 @@ public class ConnectMinMax {
 		double doubleMax = Double.MAX_VALUE;
 
 	public short increaseMax(short shortMax) {
-		this.shortMax = shortMax + 1;
-    
-    return shortMax;
+		this.shortMax = ++shortMax;
+
+		return shortMax;
 	}
 
 	public long increaseMax(long longMax) {
 		this.longMax = longMax + 1;
-    
-    return longMax;
+
+		return longMax;
 	}
 
 	public byte increaseMax(byte byteMax) {
-		this.byteMax = byteMax + 1;
+		this.byteMax = ++byteMax;
 
 		return byteMax;
 	}
@@ -50,13 +50,13 @@ public class ConnectMinMax {
 	}
 
 	public short decreaseMin(short shortMin) {
-		this.shortMin = shortMin - 1;
+		this.shortMin = --shortMin;
 
 		return shortMin;
 	}
 
 	public byte decreaseMin(byte byteMin) {
-		this.byteMin = byteMin - 1;
+		this.byteMin = --byteMin;
 
 		return byteMin;
 	}
@@ -69,18 +69,18 @@ public class ConnectMinMax {
 	}
 
 	public static void main(String[] args) {
-		ConnectMinMax.connectMinMax = new ConnectMinMax();
-		connectMinMax.printVariables(byteMin, shortMin, intMin, longMin);
-		connectMinMax.printVariables(byteMax, shortMax, intMax, longMax);
-		connectMinMax.increaseMax(byteMax);
-		connectMinMax.increaseMax(shortMax);
-		connectMinMax.increaseMax(intMax);
-		connectMinMax.increaseMax(longMax);
-		connectMinMax.printVariables(byteMax, shortMax, intMax, longMax);
-		connectMinMax.decreaseMin(byteMin);
-		connectMinMax.decreaseMin(shortMin);
-		connectMinMax.decreaseMin(intMin);
-		connectMinMax.decreaseMin(longMin);
-		connectMinMax.printVariables(byteMin, shortMin, intMin, longMin);
+		ConnectMinMax connectMinMax = new ConnectMinMax();
+		connectMinMax.printVariables(connectMinMax.byteMin, connectMinMax.shortMin, connectMinMax.intMin, connectMinMax.longMin);
+		connectMinMax.printVariables(connectMinMax.byteMax, connectMinMax.shortMax, connectMinMax.intMax, connectMinMax.longMax);
+		connectMinMax.increaseMax(connectMinMax.byteMax);
+		connectMinMax.increaseMax(connectMinMax.shortMax);
+		connectMinMax.increaseMax(connectMinMax.intMax);
+		connectMinMax.increaseMax(connectMinMax.longMax);
+		connectMinMax.printVariables(connectMinMax.byteMax, connectMinMax.shortMax, connectMinMax.intMax, connectMinMax.longMax);
+		connectMinMax.decreaseMin(connectMinMax.byteMin);
+		connectMinMax.decreaseMin(connectMinMax.shortMin);
+		connectMinMax.decreaseMin(connectMinMax.intMin);
+		connectMinMax.decreaseMin(connectMinMax.longMin);
+		connectMinMax.printVariables(connectMinMax.byteMin, connectMinMax.shortMin, connectMinMax.intMin, connectMinMax.longMin);
 	}
 }
