@@ -1,7 +1,7 @@
 public class MyByte {
 	private byte currentByte;
-	static byte maxValueByte = Byte.MAX_VALUE;
-	static byte minValueByte = Byte.MIN_VALUE;
+	static final byte maxValueByte = Byte.MAX_VALUE;
+	static final byte minValueByte = Byte.MIN_VALUE;
 	
 	public MyByte(byte currentByte) {
 		this.currentByte = currentByte;
