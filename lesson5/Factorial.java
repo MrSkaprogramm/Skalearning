@@ -2,11 +2,12 @@ public class Factorial {
 
 	public static void main(String[] args) {
 		int currentDigit = 1;
-		int result = 1;
-		while(currentDigit <= 10) {
+		double result = 1;
+		
+		do {
 			result *= currentDigit;
 			currentDigit++;
-		}
-		System.out.println("Factorial of digits from 0 to 10 is: " + result);
+		}while(currentDigit <= 25);
+		System.out.println("Multiply of digits from 1 to 25 is: " + result);
 	}
 }
