@@ -11,16 +11,12 @@ public class LegalEntity {
 	}
 	
 	public double calcClearYearRevenue() {
-		double clearYearRevenue;
-		clearYearRevenue = yearRevenue - (yearRevenue/100)*taxRate;
-		return clearYearRevenue;
+		return yearRevenue - (yearRevenue/100)*taxRate;
 		
 	}
 	
 	public double calcYearTaxValue() {
-		double yearTaxValue;
-		yearTaxValue = (yearRevenue/100)*taxRate;
-		return yearTaxValue;
+		return (yearRevenue/100)*taxRate;
 		
 	}
 }
