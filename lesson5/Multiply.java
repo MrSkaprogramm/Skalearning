@@ -1,4 +1,4 @@
-public class Factorial {
+public class Multiply {
 
 	public static void main(String[] args) {
 		int currentDigit = 1;
