@@ -36,13 +36,13 @@ public class Accounting {
 	}
 	
 	public  void firmLegalEntityBalance(LegalEntity legalentity) {
-		System.out.println("LegalEntity yearRevenue amount: " + legalentity.yearRevenue);
+		System.out.println("LegalEntity yearRevenue amount: " + legalentity.getYearRevenue());
 		System.out.println("LegalEntity YearTax amount: " + legalentity.calcYearTaxValue());
 		System.out.println("LegalEntity ClearYearRevenue amount: " + legalentity.calcClearYearRevenue());
 	}
 	
 	public  void firmJSCBalance(JSC jsc) {
-		System.out.println("JSC yearRevenue amount: " + jsc.yearRevenue);
+		System.out.println("JSC yearRevenue amount: " + jsc.getYearRevenue());
 		System.out.println("JSC YearTax amount: " + jsc.calcYearTaxValue());
 		System.out.println("JSC ClearYearRevenue amount: " + jsc.calcClearYearRevenue());
 	}
