@@ -1,6 +1,6 @@
 public class LegalEntity {
-	public int taxRate;
-	public int yearRevenue;
+	private int taxRate;
+	private int yearRevenue;
 	
 	public LegalEntity(int taxRate) {
 		this.taxRate = taxRate;
@@ -10,13 +10,19 @@ public class LegalEntity {
 		this.yearRevenue = yearRevenue;
 	}
 	
+	public int getYearRevenue() {
+		return yearRevenue;
+	}
+	
+	public int getTaxRate() {
+		return taxRate;
+	}
+	
 	public double calcClearYearRevenue() {
-		return yearRevenue - (yearRevenue/100)*taxRate;
-		
+		return yearRevenue - (yearRevenue/100)*taxRate;	
 	}
 	
 	public double calcYearTaxValue() {
 		return (yearRevenue/100)*taxRate;
-		
 	}
 }
