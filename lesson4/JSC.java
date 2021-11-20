@@ -8,13 +8,13 @@ public class JSC extends LegalEntity {
 	
 	@Override
 	public double calcClearYearRevenue() {
-		return yearRevenue - (yearRevenue/100)*taxRate - (yearRevenue/100)*roadTax;
+		return super.getYearRevenue() - (super.getYearRevenue()/100)*getTaxRate() - (super.getYearRevenue()/100)*roadTax;
 		
 	}
 	
 	@Override
 	public double calcYearTaxValue() {
-		return (yearRevenue/100)*taxRate + (yearRevenue/100)*roadTax;
+		return (super.getYearRevenue()/100)*getTaxRate() + (super.getYearRevenue()/100)*roadTax;
 		
 	}
 }
