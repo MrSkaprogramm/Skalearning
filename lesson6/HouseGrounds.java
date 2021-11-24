@@ -10,6 +10,7 @@ public class HouseGrounds {
 		double biggestWidth = 0.0;
 		String isGoodGround = null;
 		Scanner sc = new Scanner(System.in);
+		
 		while(firstHouseLength <= 0) {
 			System.out.println("Enter the first house length");
 			firstHouseLength = sc.nextDouble();
