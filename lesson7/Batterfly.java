@@ -15,7 +15,7 @@ public class Batterfly {
 					array[i][j] = 1;
 					System.out.print(array[i][j] + " ");
 				}
-			} else if(i <= array.length / 2) {
+			} else if(i < array.length / 2) {
 				for(int j = 0; j < i; j++) {
 					array[i][j] = 0;
 					System.out.print(array[i][j] + " ");
