@@ -55,7 +55,7 @@ public class ATM {
 				WithdrawMoney(atm, option);
 			}else {
 				System.out.print("Have a nice day!");
-        sc.close();
+        			sc.close();
 				return;
 			}
 	}
