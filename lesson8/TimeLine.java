@@ -1,8 +1,8 @@
 public class TimeLine {
-	int seconds;
-	int minutes;
-	int hours;
-	Integer allSeconds;
+	private int seconds;
+	private int minutes;
+	private int hours;
+	private Integer allSeconds;
 	
 	public TimeLine(Integer allSeconds) {
 		this.allSeconds = allSeconds;
