@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class FindAllLastLetters {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter text:");
+		String text = sc.nextLine();
+		sc.close();
+		char lastLetter;
+		
+		text = text.trim();
+		text = text.replaceAll("-?[^a-zA-Z ]+", "");
+		System.out.println(text);
+		Pattern p = Pattern.compile(" +");
+		Matcher m = p.matcher(text);
+		StringBuilder sb = new StringBuilder();
+
+		for(int i = 0; i < text.length(); i++) {
+			if(m.find()) {
+				lastLetter = text.charAt(m.start() - 1);
+				sb.append(lastLetter);
+			}
+			if(i == text.length() - 1) {
+				lastLetter = text.charAt(text.length() - 1);
+				sb.append(lastLetter);
+			}
+		}
+		System.out.println("Text with all last letters: " + sb.toString());
+	}
+}
