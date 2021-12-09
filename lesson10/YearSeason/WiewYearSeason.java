@@ -1,4 +1,4 @@
-public class WiewYearSeason {
+public class ViewYearSeason {
 
 	public static void main(String[] args) {
 		for(YearSeason season:YearSeason.values()) {
