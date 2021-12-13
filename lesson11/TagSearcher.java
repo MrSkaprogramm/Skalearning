@@ -20,14 +20,12 @@ public class TagSearcher {
 				buildTags.replace(m.start(), m.end(), tag);
 				oldLength = m.end() - m.start();
 				count++;
-			}else if(count >= 1) {
+			}else {
 				compareStrings = compareStrings + (oldLength - tag.length());
 				buildTags.replace((m.start() - compareStrings), (m.end() - compareStrings), tag);
 				oldLength = m.end() - m.start();
-				count++;
 			}
 		}
-		
 		System.out.println("Your string with only simple tags:" + "\n" + buildTags.toString());
 	}
 }
