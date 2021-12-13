@@ -3,6 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FindHexNumber {
+	private static final String hexPattern = "0[x{1}X{1}][0-9a-fA-F]+";
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -12,7 +13,7 @@ public class FindHexNumber {
 		String whereIsHex = sc.nextLine();
 		sc.close();
 		
-		Pattern p = Pattern.compile("0[x{1}X{1}][0-9a-fA-F]+");
+		Pattern p = Pattern.compile(hexPattern);
 		Matcher m = p.matcher(whereIsHex);
 		
 		while(m.find()) {
