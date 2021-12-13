@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ViewAmountOfDaysSeason {
 	public void viewAmountOfDays(String currentSeason) {
 		for(YearSeason season:YearSeason.values()) {
-			if(currentSeason.equalsIgnoreCase(season.getDescription())) {
+			if(season.getDescription().equalsIgnoreCase(currentSeason)) {
 				System.out.println("Amount of days in season " + season.getDescription() + " is: " + season.getCountOfDays());
 			}
 		}
