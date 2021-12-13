@@ -7,19 +7,24 @@ public class FindHexNumber {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		StringBuilder sb = new StringBuilder();
-		String hexNumber;
+		String hexNumber = null;
 		System.out.println("Enter the line:");
 		String whereIsHex = sc.nextLine();
 		sc.close();
 		
-		Pattern p = Pattern.compile("0x[0-9a-fA-F]+");
+		Pattern p = Pattern.compile("0[x{1}X{1}][0-9a-fA-F]+");
 		Matcher m = p.matcher(whereIsHex);
 		
 		while(m.find()) {
-			hexNumber = whereIsHex.substring(m.start(), m.end());
+			if(m.end() - m.start() <= 18) {
+				hexNumber = whereIsHex.substring(m.start(), m.end());
+			}else {
+				continue;
+			}
+			
 			sb.append(hexNumber);
 			sb.append(" ");
 		}
-		System.out.println("All hex numbers in the line:" + sb.toString());
+		System.out.println("All hex numbers in the line: " + sb.toString());
 	}
 }
