@@ -3,13 +3,15 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class TagSearcher {
+	private static final String tagPattern = "<*p* *\t* *\\S*>";
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the String, whitch contains tags");
 		String tags = sc.nextLine();
 		sc.close();
 		String tag = "<p>";
-		Pattern p = Pattern.compile("<*p* *\t* *\\S*>");
+		Pattern p = Pattern.compile(tagPattern);
 		Matcher m = p.matcher(tags);
 
 		StringBuilder buildTags = new StringBuilder(tags);
