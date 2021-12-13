@@ -5,13 +5,13 @@ public class ViewNextSeason {
 		public void viewSeason(String currentSeason) {
 			boolean equalsSeason = false;
 			for(YearSeason season:YearSeason.values()) {
-				if(equalsSeason == true) {
+				if(equalsSeason) {
 					System.out.println("Next season is: " + season.getDescription());
 					break;
 				}
 				if(season.getDescription().equalsIgnoreCase(currentSeason)) {
 					equalsSeason = true;
-					if(season == YearSeason.SUMMER) {
+					if(YearSeason.SUMMER.equals(season)) {
 						System.out.println("Next season is: " + YearSeason.AUTUMN.getDescription());
 					}
 				}
