@@ -4,9 +4,9 @@ public class DefineMoreEffective {
 		String experiment = "aaabbbccc";
 		
 		long currentTime = System.currentTimeMillis();
-		String final1;
+		String final1 = null;
 		for(int i = 0; i < 1000000; i++) {
-			final1 = experiment + experiment;
+			final1 = final1 + experiment;
 		}
 		long finishTime1 = (System.currentTimeMillis() - currentTime);
 		
