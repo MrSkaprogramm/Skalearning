@@ -7,6 +7,7 @@ public class TagSearcher {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the String, whitch contains tags");
 		String tags = sc.nextLine();
+		sc.close();
 		String tag = "<p>";
 		Pattern p = Pattern.compile("<*p* *\t* *\\S*>");
 		Matcher m = p.matcher(tags);
