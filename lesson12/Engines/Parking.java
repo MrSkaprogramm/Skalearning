@@ -13,7 +13,7 @@ public class Parking {
 		System.out.println("Second car: fuel type - " + electricCar.getEngine().getFuelType() + ", engine power -  " + electricCar.getEngine().getEnginePower());
 		
 		Car<PetrolEngine> petrolCar = new Car<PetrolEngine>(petrolEngine);
-		petrolCar.getEngine().setEngineVolume(5.0);
+		petrolCar.getEngine().setEngineVolume(3.0);
 		System.out.println("Third car: fuel type - " + petrolCar.getEngine().getFuelType() + ", engine volume -  " + petrolCar.getEngine().getEngineVolume());
 	}
 }
