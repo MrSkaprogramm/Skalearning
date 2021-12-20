@@ -3,19 +3,20 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BiggestGrade {
+	private static final int amount_Grades = 10;
 
 	public static void main(String[] args) {
 		List<Integer> grades = new ArrayList<>();
 		
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < amount_Grades; i++) {
 			grades.add((int)(Math.random()*10 + 1));
 		}
 		System.out.print("All student grades:");
 		for(int i = 0; i < grades.size(); i++) {
 				System.out.print(grades.get(i) + " ");
 		}
-		Integer maxGrade = grades.get(0);
 		
+		Integer maxGrade = grades.get(0);
 		Iterator<Integer> iterator = grades.iterator();
 		
 		while(iterator.hasNext()) {
