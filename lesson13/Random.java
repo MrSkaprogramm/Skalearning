@@ -2,11 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Random {
+	private static final int AmountElements = 16;
 
 	public static void main(String[] args) {
 		List<Integer> randomCollection = new ArrayList<>();
 		
-		for(int i = 0; i < 16; i++) {
+		for(int i = 0; i < AmountElements; i++) {
 			randomCollection.add((int)(Math.random()*10 + 1));
 		}
 		System.out.println("All random numbers:");
