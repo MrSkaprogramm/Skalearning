@@ -15,15 +15,15 @@ public class RepeatThisNumbers {
 	}
 		
 	public void findNumbersInText(String text, List<Integer> strings) {
-			int count = 0;
-			for(int i = 0; i < text.length(); i++) {
-				if(Character.toString(text.charAt(i)).matches("[0-9]")) {
-					strings.add(count, Integer.parseInt(text.substring(i, i + 1)));
-					count++;
-				}
+		int count = 0;
+		for(int i = 0; i < text.length(); i++) {
+			if(Character.toString(text.charAt(i)).matches("[0-9]")) {
+				strings.add(count, Integer.parseInt(text.substring(i, i + 1)));
+				count++;
 			}
-			deleteRepeatingNumbers(strings);
 		}
+		deleteRepeatingNumbers(strings);
+	}
 		
 	public void deleteRepeatingNumbers(List<Integer> strings) {
 		int currentNum;
