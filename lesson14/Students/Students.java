@@ -1,13 +1,13 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Students {
+public class StudentLearn {
 	private String name;
 	private String group;
 	private int studyYear;
 	private Map<String, Integer> assestments;
 	
-	public Students(String name,  String group, int studyYear) {
+	public StudentLearn(String name,  String group, int studyYear) {
 		this.name = name;
 		this.group = group;
 		this.studyYear = studyYear;
