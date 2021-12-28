@@ -22,7 +22,7 @@ public class BoxesWarehouse {
 		
 		worker.printBoxesSet(heavySet);
 		worker.changeBoxesWeight(heavySet);
-		worker.removeBoxes(heavySet);
+		worker.removeBoxes(heavySet, heavySet.size() - 1);
 		worker.heavySetToHeavyArr1(heavySet);
 		worker.heavySetToHeavyArr2(heavySet);
 		worker.heavySetToHeavyArr3(heavySet);
