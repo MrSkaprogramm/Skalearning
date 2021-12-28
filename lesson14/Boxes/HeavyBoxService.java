@@ -11,7 +11,7 @@ public interface HeavyBoxService {
 	
 	public void changeBoxesWeight(Set<HeavyBox> heavySet);
 	
-	public void removeBoxes(Set<HeavyBox> heavySet, HeavyBox heavyBox);
+	public void removeBoxes(Set<HeavyBox> heavySet, int boxNumber);
 	
 	public void removeAllBoxes(Set<HeavyBox> heavySet);
 	
