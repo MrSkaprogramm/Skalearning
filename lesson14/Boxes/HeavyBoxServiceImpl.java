@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Set;
 
 public class HeavyBoxServiceImpl implements HeavyBoxService {
@@ -32,14 +33,24 @@ public class HeavyBoxServiceImpl implements HeavyBoxService {
 
 	@Override
 	public void changeBoxesWeight(Set<HeavyBox> heavySet) {
-		heavySet.stream().findFirst().get().setWeight(131);
-		System.out.println("- Weight of first box changed to 131 kg -");
+		heavySet.iterator().next().setWeight(heavySet.iterator().next().getWeight() + 1);
+		System.out.println("- Weight of first box increased by 1 kg -");
 	}
 
 	@Override
-	public void removeBoxes(Set<HeavyBox> heavySet, HeavyBox heavyBox) {
-		heavySet.remove(heavyBox);
-		System.out.println("- Box removed from warehouse -");
+	public void removeBoxes(Set<HeavyBox> heavySet, int boxNumber) {
+		Iterator<HeavyBox> iterator = heavySet.iterator();
+		HeavyBox inBox;
+		int count = 0;
+		while(true){
+			inBox = iterator.next();
+			if(count == boxNumber) {
+				heavySet.remove(inBox);
+				break;
+			}
+			count++;
+		}
+		System.out.println("- Box number " + boxNumber + " removed from warehouse -");
 	}
 
 	@Override
