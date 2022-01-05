@@ -15,6 +15,7 @@ public class FileWithNumbers {
 	public void createNewFile() {
 		File file = new File("temp.txt");
 		String text = "In today's race participating in race: \n 1 - Robot78585 \n 2 - DroneAH4381 \n 3 - RC Car F1";
+		System.out.println("Text: \n" + "----------------\n" + text + "\n" + "----------------" + "\n");
 		try {
 			if(!file.exists()) {
 				file.createNewFile();
