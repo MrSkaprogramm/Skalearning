@@ -74,27 +74,34 @@ public class FilesInDirectories {
 		File files = new File(path);
 		File reWriteFile = new File(path, dataFileName);
 		String currentNum = null;
+		BufferedReader fileReader = null;
+		FileWriter writeNum = null;
 			try {
 				for(File currentFile : files.listFiles()) {
-					BufferedReader fileReader = new BufferedReader(new FileReader(currentFile));
+					fileReader = new BufferedReader(new FileReader(currentFile));
 					currentNum = fileReader.readLine();
 					while(currentNum != null) {
 						fileNumbers.add(currentNum);
 						currentNum = fileReader.readLine();
 					}
-					fileReader.close();
 					
 					reWriteFile.createNewFile();
-					FileWriter writeNum = new FileWriter(reWriteFile);
+					writeNum = new FileWriter(reWriteFile);
 					for(int i = 0; i < fileNumbers.size(); i++) {
 						writeNum.write(fileNumbers.get(i) + "\n");
 					}
-					writeNum.close();
 				}
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			} finally {
+				try {
+					fileReader.close();
+					writeNum.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 	}
 	
@@ -102,9 +109,8 @@ public class FilesInDirectories {
 		String listName = "catalogList.txt";
 		File listFiles = new File(path, listName);
 		File dir = new File(path);
-		try {
+		try (FileWriter writeList = new FileWriter(listFiles);){
 			listFiles.createNewFile();
-			FileWriter writeList = new FileWriter(listFiles);
 			for(File currentFile : dir.listFiles()) {
 				writeList.write(currentFile.getName() + "\n");
 			}
