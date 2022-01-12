@@ -13,6 +13,6 @@ public class Length {
 	}
 	
 	public static int getRandomNum() {
-		return (int)(Math.random()*MAX_VALUE);
+		return (int)(Math.random()*MAX_VALUE + 1);
 	}
 }
