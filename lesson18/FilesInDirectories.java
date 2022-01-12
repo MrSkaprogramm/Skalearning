@@ -68,6 +68,7 @@ public class FilesInDirectories {
 			e.printStackTrace();
 		}
 	}
+	
 	public void reWriteFiles(String path) {
 		List<String> fileNumbers = new ArrayList<>();
 		String dataFileName = "dataFile.txt";
@@ -76,33 +77,33 @@ public class FilesInDirectories {
 		String currentNum = null;
 		BufferedReader fileReader = null;
 		FileWriter writeNum = null;
-			try {
-				for(File currentFile : files.listFiles()) {
-					fileReader = new BufferedReader(new FileReader(currentFile));
+		try {
+			for(File currentFile : files.listFiles()) {
+				fileReader = new BufferedReader(new FileReader(currentFile));
+				currentNum = fileReader.readLine();
+				while(currentNum != null) {
+					fileNumbers.add(currentNum);
 					currentNum = fileReader.readLine();
-					while(currentNum != null) {
-						fileNumbers.add(currentNum);
-						currentNum = fileReader.readLine();
-					}
-					
-					reWriteFile.createNewFile();
-					writeNum = new FileWriter(reWriteFile);
-					for(int i = 0; i < fileNumbers.size(); i++) {
-						writeNum.write(fileNumbers.get(i) + "\n");
-					}
 				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					fileReader.close();
-					writeNum.close();
-				} catch (IOException e) {
-					e.printStackTrace();
+					
+				reWriteFile.createNewFile();
+				writeNum = new FileWriter(reWriteFile);
+				for(int i = 0; i < fileNumbers.size(); i++) {
+					writeNum.write(fileNumbers.get(i) + "\n");
 				}
 			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				fileReader.close();
+				writeNum.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public void createListFiles(String path) {
