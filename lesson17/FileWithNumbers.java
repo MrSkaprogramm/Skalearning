@@ -16,15 +16,14 @@ public class FileWithNumbers {
 		File file = new File("temp.txt");
 		String text = "In today's race participating in race: \n 1 - Robot78585 \n 2 - DroneAH4381 \n 3 - RC Car F1";
 		System.out.println("Text: \n" + "----------------\n" + text + "\n" + "----------------" + "\n");
-		try {
+		try(FileWriter fileWriter = new FileWriter(file);) {
 			if(!file.exists()) {
 				file.createNewFile();
 			}
-			FileWriter fileWriter = new FileWriter(file);
+			
 			
 			fileWriter.write(text);
 			fileWriter.flush();
-			fileWriter.close();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
@@ -35,8 +34,7 @@ public class FileWithNumbers {
 		List<Integer> numbers = new ArrayList<>();
 		int sum = 0;
 		System.out.println("All text numbers:");
-		try {
-			FileReader fileReader = new FileReader(file);
+		try(FileReader fileReader = new FileReader(file);) {
 			int res  = fileReader.read();
 			while(res != -1) {
 				if(String.valueOf((char)res).matches("[0-9]")){
@@ -46,7 +44,6 @@ public class FileWithNumbers {
 				}
 				res = fileReader.read();
 			}
-			fileReader.close();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
