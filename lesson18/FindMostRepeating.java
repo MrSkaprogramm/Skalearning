@@ -17,15 +17,13 @@ public class FindMostRepeating {
 		File file = new File("FindMostRepeating.txt");
 		String text = "In today's race participating in race: \n 1 - Robot 78585 \n 2 - Drone AH4381 \n 3 - RC Car F1";
 		
-		try {
+		try(FileWriter fileWriter = new FileWriter(file);) {
 			if(!file.exists()) {
 				file.createNewFile();
 			}
 				
-			FileWriter fileWriter = new FileWriter(file);
 			fileWriter.write(text);
 			fileWriter.flush();
-			fileWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -38,8 +36,7 @@ public class FindMostRepeating {
 		int firstIndex = 0;
 		int secondIndex = 0;
 		List<String> strings = new ArrayList<>();
-		try {
-			BufferedReader fileReader = new BufferedReader(new FileReader(file));
+		try(BufferedReader fileReader = new BufferedReader(new FileReader(file));) {
 			String currentString = fileReader.readLine();
 			String totalString;
 			while(currentString != null) {
@@ -66,7 +63,6 @@ public class FindMostRepeating {
 				}
 				currentString = fileReader.readLine();
 			}
-			fileReader.close();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
