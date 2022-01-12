@@ -16,15 +16,12 @@ public class RandomNumbers {
 	}
 	
 	public void createBinFile(String fileName) {
-		try {
-			FileOutputStream fileOs = new FileOutputStream(fileName);
-			ObjectOutputStream objectOs = new ObjectOutputStream(fileOs);
+		try(FileOutputStream fileOs = new FileOutputStream(fileName); ObjectOutputStream objectOs = new ObjectOutputStream(fileOs);) {
 			int randomNum;
 			for(int i = 0; i < AMOUNT_OF_NUMBERS ; i++) {
 				randomNum = (int)(Math.random()*100);
 				objectOs.writeInt(randomNum);
 			}
-			objectOs.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -34,9 +31,7 @@ public class RandomNumbers {
 	}
 	
 	public void readBinFile(String fileName) {
-		try {
-			FileInputStream fileIn = new FileInputStream(fileName);
-			ObjectInputStream readFile = new ObjectInputStream(fileIn);
+		try(FileInputStream fileIn = new FileInputStream(fileName); ObjectInputStream readFile = new ObjectInputStream(fileIn);) {
 			int x;
 			int sumNumbers = 0;
 			while(readFile.available() > 0) {
@@ -45,7 +40,6 @@ public class RandomNumbers {
 				sumNumbers += x;
 			}
 			System.out.print("\nArithmetic mean of numbers in file is: " + sumNumbers/AMOUNT_OF_NUMBERS);
-			readFile.close();
 		} catch(FileNotFoundException e) {
 			e.printStackTrace();
 		} catch(IOException e) {
