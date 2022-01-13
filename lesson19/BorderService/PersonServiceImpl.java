@@ -27,7 +27,7 @@ public class PersonServiceImpl implements PersonService {
 			.peek(person -> System.out.println("Person under 21: " + person.getName()))
 			.sorted(sortPersons)
 			.limit(4).collect(Collectors.toList()).forEach(person -> System.out.print("Person with suspicious passport: " + "name: " 
-																						+ person.getName() + " surname: " + person.getSurname() 
-																						+  " age: " +  person.getAge() + "\n"));
+												  + person.getName() + " surname: " + person.getSurname() 
+												  +  " age: " +  person.getAge() + "\n"));
 	}
 }
