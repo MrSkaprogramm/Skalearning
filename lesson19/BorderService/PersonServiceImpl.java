@@ -20,8 +20,8 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public void checkPassports(List<Person> persons) {
 		Comparator<Person> sortPersons = Comparator
-								.comparing(Person::getSurname)
-								.thenComparing(Person::getName);
+							   .comparing(Person::getSurname)
+							   .thenComparing(Person::getName);
 		persons.stream()
 			.filter(person -> person.getAge() < 21)
 			.peek(person -> System.out.println("Person under 21: " + person.getName()))
