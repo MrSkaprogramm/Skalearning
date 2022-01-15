@@ -17,14 +17,14 @@ public class FilesInDirectories {
 	}
 	
 	public void makeDirectories(String path) {
-		File directly = new File(path);
-		if(!directly.exists()) {
-			directly.mkdir();
-			System.out.println("Successfully");
-		}else {
-			System.out.println("Already");
-		}
-		path = path + "\\IOTest1";
+			File directly = new File(path);
+			if(!directly.exists()) {
+				directly.mkdir();
+				System.out.println("Successfully");
+			}else {
+				System.out.println("Already");
+			}
+			path = path + "\\IOTest";
 		File directly1 = new File(path);
 		if(!directly1.exists()) {
 			directly1.mkdir();
@@ -46,26 +46,28 @@ public class FilesInDirectories {
 	}
 	
 	public void createFiles(String path) {
-		String fileName = null;
-		try {
-			int x;
-			fileName = "Already";
-			int fileNum;
-			for(int i = 0; i < 5; i++) {
-				x = (int)(Math.random()*100);
-				fileName = "Already" + x + ".txt";
-				File file = new File(path, fileName);
+		int x;
+		String fileName = "Already";
+		int fileNum;
+		File file = new File(path, fileName);
+		
+		for(int i = 0; i < 5; i++) {
+			x = (int)(Math.random()*100);
+			fileName = "Already" + x + ".txt";
+			file = new File(path, fileName);
+			try {
 				file.createNewFile();
-				
-				FileWriter writeFile = new FileWriter(file);
-				for(int j = 0; j < 10; j++) {
-					fileNum = (int)(Math.random()*100);
-					writeFile.write(Integer.toString(fileNum) + "\n");
-				}
-				writeFile.close();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
+			try (FileWriter writeFile = new FileWriter(file);){
+				for(int j = 0; j < 10; j++) {
+							fileNum = (int)(Math.random()*100);
+							writeFile.write(Integer.toString(fileNum) + "\n");
+				}
+			} catch (IOException e) {
+					e.printStackTrace();
+			} 
 		}
 	}
 	
@@ -77,33 +79,33 @@ public class FilesInDirectories {
 		String currentNum = null;
 		BufferedReader fileReader = null;
 		FileWriter writeNum = null;
-		try {
-			for(File currentFile : files.listFiles()) {
-				fileReader = new BufferedReader(new FileReader(currentFile));
-				currentNum = fileReader.readLine();
-				while(currentNum != null) {
-					fileNumbers.add(currentNum);
-					currentNum = fileReader.readLine();
-				}
-					
-				reWriteFile.createNewFile();
-				writeNum = new FileWriter(reWriteFile);
-				for(int i = 0; i < fileNumbers.size(); i++) {
-					writeNum.write(fileNumbers.get(i) + "\n");
-				}
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
 			try {
-				fileReader.close();
-				writeNum.close();
+				for(File currentFile : files.listFiles()) {
+					fileReader = new BufferedReader(new FileReader(currentFile));
+					currentNum = fileReader.readLine();
+					while(currentNum != null) {
+						fileNumbers.add(currentNum);
+						currentNum = fileReader.readLine();
+					}
+					
+					reWriteFile.createNewFile();
+					writeNum = new FileWriter(reWriteFile);
+					for(int i = 0; i < fileNumbers.size(); i++) {
+						writeNum.write(fileNumbers.get(i) + "\n");
+					}
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			} finally {
+				try {
+					fileReader.close();
+					writeNum.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-		}
 	}
 	
 	public void createListFiles(String path) {
