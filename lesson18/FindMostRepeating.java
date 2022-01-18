@@ -31,7 +31,6 @@ public class FindMostRepeating {
 	}
 	
 	public void findAllWords(File file) {
-		System.out.println("start currentString ");
 		boolean isFirst = false;
 		int firstIndex = 0;
 		int secondIndex = 0;
@@ -41,7 +40,6 @@ public class FindMostRepeating {
 			String totalString;
 			while(currentString != null) {
 				currentString.trim();
-				System.out.println("currentString " + currentString);
 				for(int i = 0; i < currentString.length(); i++) {
 					if(isFirst == false) {
 						firstIndex = i;
@@ -67,9 +65,6 @@ public class FindMostRepeating {
 			e.printStackTrace();
 		}
 		
-		for(String currentWord : strings) {
-			System.out.println(currentWord + " ");
-		}
 		findMostRepeating(strings);
 	}
 	
