@@ -1,4 +1,4 @@
-public class FactoryOne extends Thread {
+public class Factory extends Thread {
 	Economy producer;
 
 	@Override
@@ -6,7 +6,7 @@ public class FactoryOne extends Thread {
 		while(true) {
 			producer.producingCompany();
 			if(producer.getEconomy_Capacity() >= producer.getTotalEconomyCapacity()) {
-				System.out.println("produce1 returned ");
+				System.out.println("The economy is working great! You are a wonderful president!");
 				return;
 			}
 		}
