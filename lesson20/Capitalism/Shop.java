@@ -1,4 +1,4 @@
-public class ShopOne extends Thread {
+public class Shop extends Thread {
 	Economy consumer;
 
 	@Override
@@ -6,7 +6,7 @@ public class ShopOne extends Thread {
 		while(true) {
 			consumer.consumingCompany();
 			if(consumer.getEconomy_Capacity() >= consumer.getTotalEconomyCapacity()) {
-				System.out.println("consumer1 returned ");
+				System.out.println("The economy is working great! You are a wonderful president!");
 				return;
 			}
 		}
