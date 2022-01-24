@@ -15,7 +15,7 @@ public class MeetingSchedule {
 		
 		for(int i = 0; i < period; i++) {
 			if(i % 7 == 0) {
-				System.out.println("Next meeting at: " + currentDate.plusDays(i).withHour(hour));
+				System.out.println("Next meeting at: " + currentDate.plusDays(i).withHour(hour).withMinute(0));
 			}
 		}
 	}
