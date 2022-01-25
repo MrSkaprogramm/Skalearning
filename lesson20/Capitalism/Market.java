@@ -6,13 +6,13 @@ public class Market {
 		
 		for(int i = 0; i < 3; i++) {
 			Factory factory = new Factory();
-			factory.producer = economy;
+			factory.setProducer(economy);
 			factory.start();
 		}
 		
 		for(int i = 0; i < 2; i++) {
 			Shop shop = new Shop();
-			shop.consumer = economy;
+			shop.setConsumer(economy);
 			shop.start();
 		}
 	}
