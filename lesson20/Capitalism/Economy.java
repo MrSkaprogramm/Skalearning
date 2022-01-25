@@ -9,9 +9,9 @@ public class Economy {
 	private static final int FACTORY_STARTS_SATURATION_GOODS = 80;
 	private static final int TOTAL_ECONOMY_CAPACITY = 10000;
 	private int economyCapacity;
-	private List<Integer> queue_Elements = new ArrayList<>();
+	private List<Integer> queueElements = new ArrayList<>();
 	
-	public int getEconomy_Capacity() {
+	public int getEconomyCapacity() {
 		return economyCapacity;
 	}
 
@@ -26,28 +26,28 @@ public class Economy {
 
 	public void fillQueue() {
 		for(int i = 0; i < MAX_QUEUE_ELEMENTS; i++) {
-			queue_Elements.add((int)(Math.random()*MAX_ELEMENTS_NUMBER));
+			queueElements.add((int)(Math.random()*MAX_ELEMENTS_NUMBER));
 		}
 	}
 
 	public synchronized void producingCompany() {
-				while(queue_Elements.size() >= MAX_SATURATION_GOODS) {
+				while(queueElements.size() >= MAX_SATURATION_GOODS) {
 					try {
 						System.out.println("wait produce");
 						wait();
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					System.out.println(queue_Elements.size() + " in queue");
+					System.out.println(queueElements.size() + " in queue");
 				}
 				
 				notifyAll();
-				queue_Elements.add((int)(Math.random()*MAX_ELEMENTS_NUMBER));
+				queueElements.add((int)(Math.random()*MAX_ELEMENTS_NUMBER));
 				System.out.println(economyCapacity + " product produced by " + Thread.currentThread().getName() + " factory");
 	}
 	
 	public synchronized void consumingCompany() {
-			while(queue_Elements.isEmpty()) {
+			while(queueElements.isEmpty()) {
 				try {
 					wait();
 				} catch (InterruptedException e) {
@@ -55,12 +55,12 @@ public class Economy {
 				}
 			}
 				
-			if(queue_Elements.size() <= FACTORY_STARTS_SATURATION_GOODS) {
+			if(queueElements.size() <= FACTORY_STARTS_SATURATION_GOODS) {
 				notifyAll();
 			}
 			
 			if(economyCapacity < TOTAL_ECONOMY_CAPACITY) {
-				queue_Elements.remove(0);
+				queueElements.remove(0);
 				economyCapacity++;
 				System.out.println(Thread.currentThread().getName());
 				System.out.println(economyCapacity + " product consumed by " + Thread.currentThread().getName() + " shop");
